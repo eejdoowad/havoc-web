@@ -19,3 +19,13 @@ body {
 *:after {
   box-sizing: inherit;
 }
+
+
+
+.page-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}

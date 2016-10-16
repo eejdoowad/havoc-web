@@ -1,9 +1,22 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
+import { IndexLink, Link, browserHistory } from 'react-router'
+import AppBar from 'material-ui/AppBar'
+import FlatButton from 'material-ui/FlatButton'
+
 import './Header.scss'
+
+const loginButton = (
+  <FlatButton label='login' labelPosition='before' onTouchTap={() => browserHistory.push('/login')} />
+)
 
 export const Header = () => (
   <div>
+    <AppBar
+      title={<span style={{ cursor: 'pointer' }}>Havoc-Todo</span>}
+      onTitleTouchTap={() => browserHistory.push('/')}
+      iconElementRight={loginButton}
+    />
+    {/*
     <h1>React Redux Starter Kit</h1>
     <IndexLink to='/' activeClassName='route--active'>
       Home
@@ -12,6 +25,11 @@ export const Header = () => (
     <Link to='/counter' activeClassName='route--active'>
       Counter
     </Link>
+    {' · '}
+    <Link to='/login' activeClassName='route--active'>
+      Login
+    </Link>
+    */}
   </div>
 )
 

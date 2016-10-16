@@ -1,7 +1,11 @@
+import { combineReducers } from 'redux'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
+export const COUNTER_CLICK = 'COUNTER_CLICK'
+export const COUNTER_TRIPLE = 'COUNTER_TRIPLE'
 
 // ------------------------------------
 // Actions
@@ -11,6 +15,14 @@ export function increment (value = 1) {
     type    : COUNTER_INCREMENT,
     payload : value
   }
+}
+
+export const click = {
+  type : COUNTER_CLICK
+}
+
+export const triple = {
+  type : COUNTER_TRIPLE
 }
 
 /*  This is a thunk, meaning it is a function that immediately
@@ -23,33 +35,62 @@ export function increment (value = 1) {
 
 export const doubleAsync = () => {
   return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch(increment(getState().counter))
-        resolve()
-      }, 200)
-    })
+    setTimeout(() => {
+      dispatch(increment(getState().counter.count))
+      console.log('hi')
+    }, 200)
   }
 }
 
 export const actions = {
   increment,
-  doubleAsync
+  click,
+  doubleAsync,
+  triple
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT] : (state, action) => state + action.payload
-}
+// const ACTION_HANDLERS = {
+//   [COUNTER_INCREMENT] : (state, action) => state + action.payload,
+//   [COUNTER_CLICK]     : (state, action) => state + action.payload
+// }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
-export default function counterReducer (state = initialState, action) {
-  const handler = ACTION_HANDLERS[action.type]
-
-  return handler ? handler(state, action) : state
+function countReducer (state = 0, action) {
+  switch (action.type) {
+    case COUNTER_INCREMENT: return state + action.payload
+    case COUNTER_TRIPLE: return state * 3
+    default: return state
+  }
 }
+
+function clickReducer (state = 0, action) {
+  switch (action.type) {
+    case COUNTER_CLICK: return state + 1
+    default: return state
+  }
+}
+
+const counterReducer = combineReducers({
+  count: countReducer,
+  clicks: clickReducer
+})
+
+export default counterReducer
+
+// const initialState = 0
+// export default function counterReducer (state = initialState, action) {
+//   const handler = ACTION_HANDLERS[action.type]
+
+//   return handler ? handler(state, action) : state
+// }
+
+// function clickReducer(state = 0, action) {
+//   const handler = ACTION_HANDLER
+// }
+
+
