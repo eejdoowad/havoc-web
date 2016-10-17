@@ -29,3 +29,12 @@ body {
   justify-content: center;
   margin-top: 30px;
 }
+
+// Next 2 CSS rules fix an incompatibility bug for
+// Material-ui and normalize.css
+span[type=button] {
+  appearance: none;
+}
+a[type=button] {
+  appearance: none;
+}

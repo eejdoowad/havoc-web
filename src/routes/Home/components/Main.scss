@@ -1,0 +1,24 @@
+#main {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  top: 64px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-card {
+  // background-color: palegreen !important;
+  position: relative;
+  height: 80%;
+  width: 40%;
+  overflow: scroll;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.main-card pre {
+  font-size: 10px !important;
+}

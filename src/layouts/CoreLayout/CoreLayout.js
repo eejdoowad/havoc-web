@@ -4,7 +4,7 @@ import './CoreLayout.scss'
 import '../../styles/core.scss'
 
 export const CoreLayout = ({ children }) => (
-  <div>
+  <div style={{ height: '100%' }}>
     <Header />
     {children}
   </div>
