@@ -10,11 +10,11 @@ const rawBaseTheme = {
   ...spacing,
   fontFamily: 'Roboto, sans-serif',
   palette : {
-    primary1Color: Colors.cyan500,
-    primary2Color: Colors.cyan700,
-    primary3Color: Colors.lightBlack,
-    accent1Color: Colors.pinkA200,
-    accent2Color: Colors.grey100,
+    primary1Color: '#0277bd',
+    primary2Color: '#29b6f6',
+    primary3Color: '#01579b',
+    accent1Color: '#76ff03',
+    accent2Color: '#b2ff59',
     accent3Color: Colors.grey500,
     textColor: Colors.darkBlack,
     alternateTextColor: Colors.white,
@@ -25,4 +25,4 @@ const rawBaseTheme = {
 }
 
 // Theme must be wrapped in funciton getMuiTheme
-export default getMuiTheme(lightBaseTheme)
+export default getMuiTheme(rawBaseTheme)
