@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
 import TodoListContainer from '../containers/TodoListContainer'
 import AddTodoButton from './AddTodoButton'
 import AddTodoMenuContainer from '../containers/AddTodoMenuContainer'
@@ -15,10 +13,6 @@ class App extends React.Component {
     return (
       <div>
         <TodoListContainer />
-        {/*
-        <AddTodo />
-        <Footer />
-        */}
         <AddTodoButton />
       </div>
     )

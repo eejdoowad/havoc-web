@@ -1,5 +1,6 @@
 import React from 'react'
-import { IndexLink, Link, browserHistory } from 'react-router'
+// import { IndexLink, Link } from 'react-router'
+import { browserHistory } from 'react-router'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
 

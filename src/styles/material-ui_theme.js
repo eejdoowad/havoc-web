@@ -1,10 +1,6 @@
-// pulled from https://github.com/takanabe/react-redux-material_ui-boilerplate/blob/master/src/material_ui_raw_theme_file.jsx
-
 import { fade } from 'material-ui/utils/colorManipulator'
 import * as Colors from 'material-ui/styles/colors'
 import { spacing, getMuiTheme } from 'material-ui/styles'
-
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 
 const rawBaseTheme = {
   ...spacing,

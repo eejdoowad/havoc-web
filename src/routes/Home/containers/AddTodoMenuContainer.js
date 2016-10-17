@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
-import { changeView, fetchTodoListIfNeeded } from '../actions'
-import { updateField, fetchAddTodoIfNeeded } from '../actions/addTodoMenu'
+import { changeView } from '../actions'
+import { fetchTodoListIfNeeded } from '../actions/todoList'
+import { fetchAddTodoIfNeeded } from '../actions/addTodo'
+import { updateField } from '../actions/addTodoMenu'
 import AddTodoMenu from '../components/AddTodoMenu'
 
 const mapStateToProps = (state) => {
@@ -32,10 +34,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(changeView('VIEW_TODO_LIST'))
           })
         })
-    },
-    fetchTodoListIfNeeded: (user) => {
-      dispatch(fetchTodoListIfNeeded(user))
-        .then(() => undefined)
     }
   }
 }

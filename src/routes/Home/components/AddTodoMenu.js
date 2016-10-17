@@ -6,7 +6,6 @@ import DatePicker from 'material-ui/DatePicker'
 import TimePicker from 'material-ui/TimePicker'
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
-import { updateField } from '../actions/addTodoMenu'
 
 const style = {
   width: '100%',
@@ -17,11 +16,9 @@ const style = {
 
 }
 
-
 let AddTodoMenu = ({
   category, name, description, priority, date, time,
-  cancelAddTodo, updateField, addNewTodo,
-  fetchTodoListIfNeeded
+  cancelAddTodo, updateField, addNewTodo
 }) => {
   const handleCategoryChange = (event, index, value) => {
     updateField('category', value)
@@ -52,7 +49,6 @@ let AddTodoMenu = ({
       'subtasks': []
     }
     addNewTodo(newTodo)
-    // fetchTodoListIfNeeded('57a7bd24-ddf0-5c24-9091-ba331e486dc7')
 
     updateField('category', 'school')
     updateField('priority', 1)

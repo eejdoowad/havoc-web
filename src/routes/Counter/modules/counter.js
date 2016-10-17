@@ -81,16 +81,3 @@ const counterReducer = combineReducers({
 })
 
 export default counterReducer
-
-// const initialState = 0
-// export default function counterReducer (state = initialState, action) {
-//   const handler = ACTION_HANDLERS[action.type]
-
-//   return handler ? handler(state, action) : state
-// }
-
-// function clickReducer(state = 0, action) {
-//   const handler = ACTION_HANDLER
-// }
-
-
