@@ -32,7 +32,7 @@ const todo = (state = {}, action) => {
   }
 }
 
-const defaultTodos = [] //[{ id: 1, text: 'asf', completed: false }]
+const defaultTodos = []
 function todos (state = defaultTodos, action) {
   switch (action.type) {
     case ADD_TODO:

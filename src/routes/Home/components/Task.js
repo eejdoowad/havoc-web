@@ -9,37 +9,37 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
 
 
-const iconButtonElement = (
-  <IconButton
-    touch
-    tooltip='more'
-    tooltipPosition='bottom-left' >
-    <MoreVertIcon color={grey400} />
-  </IconButton>
-)
 
-const rightIconMenu = (
-  <IconMenu iconButtonElement={iconButtonElement}>
-    <MenuItem>Reply</MenuItem>
-    <MenuItem>Forward</MenuItem>
-    <MenuItem>Delete</MenuItem>
-  </IconMenu>
-)
+const Task = ({ onClick, name, category, t_id, deleteTodo }) => {
+  const iconButtonElement = (
+    <IconButton
+      touch
+      tooltip='more'
+      tooltipPosition='bottom-left' >
+      <MoreVertIcon color={grey400} />
+    </IconButton>)
 
+  const rightIconMenu = (
+    <IconMenu iconButtonElement={iconButtonElement}>
+      <MenuItem>Edit</MenuItem>
+      <MenuItem onClick={() => deleteTodo(t_id)}>Delete</MenuItem>
+    </IconMenu>)
 
-const Task = ({ onClick, name, category }) => (
-  <ListItem
-    primaryText={name}
-    secondaryText={category}
-    leftAvatar={<Avatar icon={<FileFolder />} />}
-    rightIconButton={rightIconMenu}
-    onClick={onClick} />
-)
+  return (
+    <ListItem
+      primaryText={name}
+      secondaryText={category}
+      leftAvatar={<Avatar icon={<FileFolder />} />}
+      rightIconButton={rightIconMenu}
+      onClick={onClick} />)
+}
 
 Task.propTypes = {
   onClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired
+  category: PropTypes.string.isRequired,
+  t_id: PropTypes.string.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 }
 
 export default Task

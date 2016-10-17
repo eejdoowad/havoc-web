@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { changeView, fetchTodoListIfNeeded } from '../actions'
-import { updateField, fetchAddTodoIfNeeded, } from '../actions/addTodoMenu'
+import { updateField, fetchAddTodoIfNeeded } from '../actions/addTodoMenu'
 import AddTodoMenu from '../components/AddTodoMenu'
 
 const mapStateToProps = (state) => {
