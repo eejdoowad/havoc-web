@@ -1,10 +1,20 @@
 import React, { PropTypes } from 'react'
 import { List } from 'material-ui/List'
 import Todo from './Todo'
+import Task from './Task'
 
-
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({
+  tasks, onTaskClick,
+  todos, onTodoClick
+}) => (
   <List>
+    {tasks.map(task =>
+      <Task
+        key={task.t_id}
+        {...task}
+        onClick={() => onTaskClick(task.t_id)}
+      />
+    )}
     {todos.map(todo =>
       <Todo
         key={todo.id}

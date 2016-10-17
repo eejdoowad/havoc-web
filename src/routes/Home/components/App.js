@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import TodoListContainer from '../containers/TodoListContainer'
 import AddTodoButton from './AddTodoButton'
 import AddTodoMenuContainer from '../containers/AddTodoMenuContainer'
 
@@ -14,9 +14,11 @@ class App extends React.Component {
   renderTodoList () {
     return (
       <div>
-        <VisibleTodoList />
+        <TodoListContainer />
+        {/*
         <AddTodo />
         <Footer />
+        */}
         <AddTodoButton />
       </div>
     )

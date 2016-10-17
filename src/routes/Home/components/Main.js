@@ -11,9 +11,11 @@ export const Main = () => (
     <Card className='main-card'>
       <AppContainer />
     </Card>
+    {/*
     <Card className='main-card'>
       <pre>{tmp}</pre>
     </Card>
+    */}
   </div>
 )
 

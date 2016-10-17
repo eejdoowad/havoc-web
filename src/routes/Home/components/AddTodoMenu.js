@@ -20,7 +20,8 @@ const style = {
 
 let AddTodoMenu = ({
   category, name, description, priority, date, time,
-  cancelAddTodo, updateField
+  cancelAddTodo, updateField, addNewTodo,
+  fetchTodoListIfNeeded
 }) => {
   const handleCategoryChange = (event, index, value) => {
     updateField('category', value)
@@ -39,6 +40,26 @@ let AddTodoMenu = ({
   }
   const handleTimeChange = (event, time) => {
     updateField('time', time)
+  }
+  const handleSubmit = () => {
+    const newTodo = {
+      'name': name,
+      'description': description,
+      'category': category,
+      'priority': priority,
+      'dateDue': 1477291500000,
+      'user': '57a7bd24-ddf0-5c24-9091-ba331e486dc7',
+      'subtasks': []
+    }
+    addNewTodo(newTodo)
+    // fetchTodoListIfNeeded('57a7bd24-ddf0-5c24-9091-ba331e486dc7')
+
+    updateField('category', 'school')
+    updateField('priority', 1)
+    updateField('name', '')
+    updateField('description', '')
+    updateField('date', null)
+    updateField('time', null)
   }
   return (
     <div style={style}>
@@ -73,7 +94,10 @@ let AddTodoMenu = ({
         value={time}
         onChange={handleTimeChange}
         hintText='Due Time' />
-      <RaisedButton label='Create Task' primary />
+      <RaisedButton
+        label='Create Task'
+        primary
+        onTouchTap={handleSubmit} />
       <FlatButton
         label='Cancel'
         secondary
@@ -90,7 +114,8 @@ AddTodoMenu.propTypes = {
   date            : PropTypes.instanceOf(Date),
   time            : PropTypes.instanceOf(Date),
   cancelAddTodo   : PropTypes.func.isRequired,
-  updateField     : PropTypes.func.isRequired
+  updateField     : PropTypes.func.isRequired,
+  addNewTodo      : PropTypes.func.isRequired
 }
 
 export default AddTodoMenu

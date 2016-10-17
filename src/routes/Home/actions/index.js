@@ -42,8 +42,9 @@ const fetchTodoList = (user) => {
   return (dispatch) => {
     dispatch(requestTodoList(user))
     return fetch(`http://ec2-54-158-62-69.compute-1.amazonaws.com:3000/api/task/read/${user}`)
-      .then(response => {
-        dispatch(receiveTodoList(response.json()))
+      .then(response => response.json())
+      .then(json => {
+        dispatch(receiveTodoList(json.doc))
       })
       .catch((error) => {
         dispatch(failureTodoList(error))

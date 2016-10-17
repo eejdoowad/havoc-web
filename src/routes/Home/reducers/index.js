@@ -3,7 +3,8 @@ import {
   ADD_TODO, TOGGLE_TODO,
   DELETE_TODO, EDIT_TODO, COMPLETE_TODO,
   COMPLETE_ALL, CLEAR_COMPLETED,
-  SET_VISIBILITY_FILTER, CHANGE_VIEW } from '../actions'
+  SET_VISIBILITY_FILTER, CHANGE_VIEW,
+  RECEIVE_TODOLIST } from '../actions'
 import addTodoMenu from './addTodoMenu'
 
 // ------------------------------------
@@ -66,9 +67,19 @@ const view = (state = 'VIEW_TODO_LIST', action) => {
   }
 }
 
+const tasks = (state = [], action) => {
+  switch (action.type) {
+    case RECEIVE_TODOLIST:
+      return action.task
+    default:
+      return state
+  }
+}
+
 const todoApp = combineReducers({
   view,
   todos,
+  tasks,
   visibilityFilter,
   addTodoMenu
 })
